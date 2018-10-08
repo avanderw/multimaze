@@ -8,14 +8,18 @@
     <artifactId>multimaze</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
+    <!--
+    http://weblog.jamisbuck.org/2011/2/7/maze-generation-algorithm-recap
+    http://people.cs.ksu.edu/~ashley78/wiki.ashleycoleman.me/index.php/Perfect_Maze_Generators.html
+    http://www.algostructure.com/specials/maze.php
+    -->
+
     <modules>
         <module>multimaze-desktop-client</module>
         <module>multimaze-server</module>
-        <module>multimaze-core</module>
         <module>multimaze-desktop-launcher</module>
         <module>multimaze-client</module>
         <module>multimaze-maze</module>
     </modules>
-
-
 </project>
