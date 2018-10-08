@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/multimaze.iml" filepath="$PROJECT_DIR$/multimaze.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multimaze-client/multimaze-client.iml" filepath="$PROJECT_DIR$/multimaze-client/multimaze-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multimaze-desktop-client/multimaze-desktop-client.iml" filepath="$PROJECT_DIR$/multimaze-desktop-client/multimaze-desktop-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multimaze-desktop-launcher/multimaze-desktop-launcher.iml" filepath="$PROJECT_DIR$/multimaze-desktop-launcher/multimaze-desktop-launcher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multimaze-maze/multimaze-maze.iml" filepath="$PROJECT_DIR$/multimaze-maze/multimaze-maze.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multimaze-protocol/multimaze-protocol.iml" filepath="$PROJECT_DIR$/multimaze-protocol/multimaze-protocol.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multimaze-server/multimaze-server.iml" filepath="$PROJECT_DIR$/multimaze-server/multimaze-server.iml" />
+    </modules>
+  </component>
+</project>
