@@ -3,7 +3,7 @@ package net.avdw.maze.model;
 public enum Direction {
     NORTH, SOUTH, EAST, WEST;
 
-    Direction opposite() {
+    public Direction opposite() {
         switch (this) {
             case NORTH:
                 return SOUTH;

@@ -1,14 +1,15 @@
 package net.avdw.maze.model;
 
-import org.pmw.tinylog.Logger;
-
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Cell {
     public final Integer row;
     public final Integer col;
-    private final Map<Direction, WallState> wallStateMap = new HashMap();
-    private final Map<Direction, Cell> neighbourCellMap = new HashMap();
+    public final Map<Direction, WallState> wallStateMap = new HashMap();
+    public final Map<Direction, Cell> neighbourCellMap = new HashMap();
+    public Boolean visited = Boolean.FALSE;
 
     Cell(Integer row, Integer col) {
         this.row = row;
@@ -31,12 +32,24 @@ public class Cell {
             key.append(wallState == WallState.OPEN ? Direction.NORTH : "");
             return wallState;
         });
+        wallStateMap.computeIfPresent(Direction.SOUTH, (direction, wallState) -> {
+            key.append(wallState == WallState.OPEN ? Direction.SOUTH : "");
+            return wallState;
+        });
+        wallStateMap.computeIfPresent(Direction.EAST, (direction, wallState) -> {
+            key.append(wallState == WallState.OPEN ? Direction.EAST : "");
+            return wallState;
+        });
+        wallStateMap.computeIfPresent(Direction.WEST, (direction, wallState) -> {
+            key.append(wallState == WallState.OPEN ? Direction.WEST : "");
+            return wallState;
+        });
         return key.toString();
     }
 
     @Override
     public String toString() {
-        return String.format("{row=%s, col=%s, walls=%s, neighbours=%s}", row, col, wallStateMap, neighbourCellMap.keySet());
+        return String.format("{row=%s, col=%s, key=%s, walls=%s, neighbours=%s}", row, col, key(), wallStateMap, neighbourCellMap.keySet());
     }
 
 }

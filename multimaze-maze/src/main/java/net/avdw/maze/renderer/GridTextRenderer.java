@@ -17,26 +17,26 @@ public class GridTextRenderer implements IMazeRenderer {
     public GridTextRenderer(IMaze maze) {
         this.maze = maze;
 
-        tileMap.put("", new String[]{"┏━┓", "┗━┛"});
+        tileMap.put("", new String[]{"┏┓", "┗┛"});
 
-        tileMap.put(Direction.NORTH.name(), new String[]{"┃ ┃", "┗━┛"});
-        tileMap.put(Direction.SOUTH.name(), new String[]{"┏━┓", "┃ ┃"});
-        tileMap.put(Direction.EAST.name(), new String[]{"┏━━", "┗━━"});
-        tileMap.put(Direction.WEST.name(), new String[]{"━━┓", "━━┛"});
+        tileMap.put(Direction.NORTH.name(), new String[]{"┃┃", "┗┛"});
+        tileMap.put(Direction.SOUTH.name(), new String[]{"┏┓", "┃┃"});
+        tileMap.put(Direction.EAST.name(), new String[]{"┏━", "┗━"});
+        tileMap.put(Direction.WEST.name(), new String[]{"━┓", "━┛"});
 
-        tileMap.put(Direction.NORTH.name() + Direction.SOUTH, new String[]{"┃ ┃", "┃ ┃"});
-        tileMap.put(Direction.NORTH.name() + Direction.WEST, new String[]{"┛ ┃", "━━┛"});
-        tileMap.put(Direction.NORTH.name() + Direction.EAST, new String[]{"┃ ┗", "┗━━"});
-        tileMap.put(Direction.SOUTH.name() + Direction.WEST, new String[]{"━━┓", "┓ ┃"});
-        tileMap.put(Direction.SOUTH.name() + Direction.EAST, new String[]{"┏━━", "┃ ┏"});
-        tileMap.put(Direction.EAST.name() + Direction.WEST, new String[]{"━━━", "━━━"});
+        tileMap.put(Direction.NORTH.name() + Direction.SOUTH, new String[]{"┃┃", "┃┃"});
+        tileMap.put(Direction.NORTH.name() + Direction.WEST, new String[]{"┛┃", "━┛"});
+        tileMap.put(Direction.NORTH.name() + Direction.EAST, new String[]{"┃┗", "┗━"});
+        tileMap.put(Direction.SOUTH.name() + Direction.WEST, new String[]{"━┓", "┓┃"});
+        tileMap.put(Direction.SOUTH.name() + Direction.EAST, new String[]{"┏━", "┃┏"});
+        tileMap.put(Direction.EAST.name() + Direction.WEST, new String[]{"━━", "━━"});
 
-        tileMap.put(Direction.NORTH.name() + Direction.SOUTH + Direction.EAST, new String[]{"┃ ┗", "┃ ┏"});
-        tileMap.put(Direction.NORTH.name() + Direction.SOUTH + Direction.WEST, new String[]{"┛ ┃", "┓ ┃"});
-        tileMap.put(Direction.NORTH.name() + Direction.EAST + Direction.WEST, new String[]{"┛ ┗", "━━━"});
-        tileMap.put(Direction.SOUTH.name() + Direction.EAST + Direction.WEST, new String[]{"━━━", "┓ ┏"});
+        tileMap.put(Direction.NORTH.name() + Direction.SOUTH + Direction.EAST, new String[]{"┃┗", "┃┏"});
+        tileMap.put(Direction.NORTH.name() + Direction.SOUTH + Direction.WEST, new String[]{"┛┃", "┓┃"});
+        tileMap.put(Direction.NORTH.name() + Direction.EAST + Direction.WEST, new String[]{"┛┗", "━━"});
+        tileMap.put(Direction.SOUTH.name() + Direction.EAST + Direction.WEST, new String[]{"━━", "┓┏"});
 
-        tileMap.put(Direction.NORTH.name() + Direction.SOUTH + Direction.EAST + Direction.WEST, new String[]{"┛ ┗", "┓ ┏"});
+        tileMap.put(Direction.NORTH.name() + Direction.SOUTH + Direction.EAST + Direction.WEST, new String[]{"┛┗", "┓┏"});
     }
 
     @Override
@@ -53,7 +53,6 @@ public class GridTextRenderer implements IMazeRenderer {
                 });
                 render.append("\n");
             });
-            render.append("\n");
         });
         Logger.info(render);
     }

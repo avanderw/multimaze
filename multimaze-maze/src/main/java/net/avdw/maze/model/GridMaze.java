@@ -10,13 +10,13 @@ import java.util.Optional;
 import java.util.stream.IntStream;
 
 @Singleton
-public class Grid implements IMaze {
+public class GridMaze implements IMaze {
     private Integer rowCount;
     private Integer colCount;
     private List<Cell> cells;
 
     @Inject
-    private Grid(@Named("defaultRowCount") Integer defaultRowCount, @Named("defaultColCount") Integer defaultColCount) {
+    private GridMaze(@Named("defaultRowCount") Integer defaultRowCount, @Named("defaultColCount") Integer defaultColCount) {
         this.rowCount = defaultRowCount;
         this.colCount = defaultColCount;
     }
