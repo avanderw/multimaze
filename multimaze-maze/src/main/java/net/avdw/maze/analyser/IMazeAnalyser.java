@@ -1,4 +1,7 @@
 package net.avdw.maze.analyser;
 
-public class IMazeAnalyser {
+import org.apache.commons.math3.stat.Frequency;
+
+public interface IMazeAnalyser {
+    Frequency analyse();
 }
