@@ -12,5 +12,24 @@
     <groupId>net.avdw</groupId>
     <artifactId>multimaze-desktop-client</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.badlogicgames.gdx</groupId>
+            <artifactId>gdx</artifactId>
+            <version>1.9.8</version>
+        </dependency>
 
+        <dependency>
+            <groupId>com.badlogicgames.gdx</groupId>
+            <artifactId>gdx-backend-lwjgl</artifactId>
+            <version>1.9.8</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.badlogicgames.gdx</groupId>
+            <artifactId>gdx-platform</artifactId>
+            <version>1.9.8</version>
+            <classifier>natives-desktop</classifier>
+        </dependency>
+    </dependencies>
 </project>

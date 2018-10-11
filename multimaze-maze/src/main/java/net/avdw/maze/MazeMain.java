@@ -16,7 +16,7 @@ import org.pmw.tinylog.Logger;
 import java.util.Set;
 import java.util.stream.IntStream;
 
-public class MazeRunner {
+public class MazeMain {
     public static void main(String[] args) {
         Configurator.currentConfig()
                 .formatPattern("{date:yyyy-MM-dd HH:mm:ss} [{thread}] {class}.{method}() {level}: \n{message}")
