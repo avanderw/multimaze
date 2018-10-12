@@ -1,10 +1,14 @@
 package net.avdw.multimaze.client.desktop;
 
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
+import net.avdw.multimaze.client.desktop.pixelmap.MazePixmapFromKeyGenerator;
 
 public class DesktopClientApplicationListener implements ApplicationListener {
     Texture texture;
@@ -12,7 +16,7 @@ public class DesktopClientApplicationListener implements ApplicationListener {
     float elapsed;
 
     public void create () {
-        texture = new Texture(Gdx.files.internal("libgdx-logo.png"));
+        texture = new Texture(new MazePixmapFromKeyGenerator().map(0b1011, 32));
         batch = new SpriteBatch();
     }
 
