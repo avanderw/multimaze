@@ -1,12 +1,21 @@
-package net.avdw.multimaze.client.desktop.pixelmap;
+package net.avdw.multimaze.client.desktop.maze;
 
 import com.badlogic.gdx.graphics.Pixmap;
+import com.google.inject.Inject;
+import net.avdw.maze.model.IMaze;
 
-public class MazePixmapFromKeyGenerator {
-    public Pixmap map(Integer key, Integer size) {
-        Integer sectionSize = size / 4;
+public class MazeTexture {
+    private IMaze maze;
 
-        Pixmap pixmap = new Pixmap(size, size, Pixmap.Format.RGBA4444);
+    @Inject
+    MazeTexture(IMaze maze) {
+        this.maze = maze;
+    }
+
+    private Pixmap mapKeyToPixmap(Integer key, Integer pixmapSize) {
+        Integer sectionSize = pixmapSize / 4;
+
+        Pixmap pixmap = new Pixmap(pixmapSize, pixmapSize, Pixmap.Format.RGBA4444);
         pixmap.setFilter(Pixmap.Filter.NearestNeighbour);
         pixmap.setColor(0xFFFFFFFF);
 

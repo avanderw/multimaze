@@ -1,23 +1,31 @@
 package net.avdw.multimaze.client.desktop;
 
+import com.badlogic.gdx.ApplicationListener;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.Gdx;
-import net.avdw.multimaze.client.desktop.pixelmap.MazePixmapFromKeyGenerator;
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
+import net.avdw.multimaze.client.desktop.maze.MazeController;
+import net.avdw.multimaze.client.desktop.maze.MazeTexture;
 
 public class DesktopClientApplicationListener implements ApplicationListener {
-    Texture texture;
+    Texture mazeTexture;
     SpriteBatch batch;
     float elapsed;
+    private MazeController mazeController;
+
+    @Inject
+    DesktopClientApplicationListener(MazeController mazeController) {
+        this.mazeController = mazeController;
+    }
 
     public void create () {
-        texture = new Texture(new MazePixmapFromKeyGenerator().map(0b1011, 32));
         batch = new SpriteBatch();
+        mazeController.generateMaze();
+        mazeController.mapMazeToTexture();
     }
 
     public void resize (int width, int height) {
@@ -28,7 +36,7 @@ public class DesktopClientApplicationListener implements ApplicationListener {
         Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
-        batch.draw(texture, 100+100*(float)Math.cos(elapsed), 100+25*(float)Math.sin(elapsed));
+        batch.draw(mazeTexture, 100, 100);
         batch.end();
     }
 
@@ -39,7 +47,7 @@ public class DesktopClientApplicationListener implements ApplicationListener {
     }
 
     public void dispose () {
-        texture.dispose();
+        mazeTexture.dispose();
         batch.dispose();
     }
 }

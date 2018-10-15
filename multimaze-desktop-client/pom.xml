@@ -30,25 +30,31 @@
             <artifactId>gdx</artifactId>
             <version>1.9.8</version>
         </dependency>
-
         <dependency>
             <groupId>com.badlogicgames.gdx</groupId>
             <artifactId>gdx-backend-lwjgl</artifactId>
             <version>1.9.8</version>
         </dependency>
-
         <dependency>
             <groupId>com.badlogicgames.gdx</groupId>
             <artifactId>gdx-platform</artifactId>
             <version>1.9.8</version>
             <classifier>natives-desktop</classifier>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>4.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>net.avdw</groupId>
+            <artifactId>multimaze-maze</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>

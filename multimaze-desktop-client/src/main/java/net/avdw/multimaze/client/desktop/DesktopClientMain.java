@@ -1,18 +1,19 @@
 package net.avdw.multimaze.client.desktop;
 
+import com.badlogic.gdx.ApplicationListener;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import net.avdw.maze.generator.IMazeGenerator;
 import org.apache.commons.lang3.StringUtils;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 
 public class DesktopClientMain {
     public static void main(String[] args) {
-        LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-        config.title = "multimaze-desktop-client";
-        config.useGL30 = Boolean.FALSE;
-        config.width = 480;
-        config.height = 320;
 
-        new LwjglApplication(new DesktopClientApplicationListener(), config);
+        Injector injector = Guice.createInjector(new DesktopClientModule());
+        injector.getInstance(IMazeGenerator.class).generate();
+        new LwjglApplication(injector.getInstance(ApplicationListener.class), injector.getInstance(LwjglApplicationConfiguration.class));
 
         for (int i=0; i < Math.pow(2, 4); i++) {
             System.out.println(StringUtils.leftPad(Integer.toBinaryString(i), 4, "0"));
