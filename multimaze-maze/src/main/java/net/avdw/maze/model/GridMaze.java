@@ -16,7 +16,7 @@ public class GridMaze implements IMaze {
     private List<Cell> cells;
 
     @Inject
-    private GridMaze(@Named("defaultRowCount") Integer defaultRowCount, @Named("defaultColCount") Integer defaultColCount) {
+    private GridMaze(@Named("maze-row-count") Integer defaultRowCount, @Named("maze-col-count") Integer defaultColCount) {
         this.rowCount = defaultRowCount;
         this.colCount = defaultColCount;
     }

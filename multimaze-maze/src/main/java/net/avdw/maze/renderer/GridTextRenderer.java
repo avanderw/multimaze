@@ -11,32 +11,32 @@ import java.util.stream.IntStream;
 
 public class GridTextRenderer implements IMazeRenderer {
     private IMaze maze;
-    private Map<String, String[]> tileMap = new HashMap();
+    private Map<Integer, String[]> tileMap = new HashMap();
 
     @Inject
     public GridTextRenderer(IMaze maze) {
         this.maze = maze;
 
-        tileMap.put("", new String[]{"┏┓", "┗┛"});
+        tileMap.put(0b0000, new String[]{"┏┓", "┗┛"});
 
-        tileMap.put(Direction.NORTH.name(), new String[]{"┃┃", "┗┛"});
-        tileMap.put(Direction.SOUTH.name(), new String[]{"┏┓", "┃┃"});
-        tileMap.put(Direction.EAST.name(), new String[]{"┏━", "┗━"});
-        tileMap.put(Direction.WEST.name(), new String[]{"━┓", "━┛"});
+        tileMap.put(0b1000, new String[]{"┃┃", "┗┛"});
+        tileMap.put(0b0100, new String[]{"┏┓", "┃┃"});
+        tileMap.put(0b0010, new String[]{"┏━", "┗━"});
+        tileMap.put(0b0001, new String[]{"━┓", "━┛"});
 
-        tileMap.put(Direction.NORTH.name() + Direction.SOUTH, new String[]{"┃┃", "┃┃"});
-        tileMap.put(Direction.NORTH.name() + Direction.WEST, new String[]{"┛┃", "━┛"});
-        tileMap.put(Direction.NORTH.name() + Direction.EAST, new String[]{"┃┗", "┗━"});
-        tileMap.put(Direction.SOUTH.name() + Direction.WEST, new String[]{"━┓", "┓┃"});
-        tileMap.put(Direction.SOUTH.name() + Direction.EAST, new String[]{"┏━", "┃┏"});
-        tileMap.put(Direction.EAST.name() + Direction.WEST, new String[]{"━━", "━━"});
+        tileMap.put(0b1100, new String[]{"┃┃", "┃┃"});
+        tileMap.put(0b1001, new String[]{"┛┃", "━┛"});
+        tileMap.put(0b1010, new String[]{"┃┗", "┗━"});
+        tileMap.put(0b0101, new String[]{"━┓", "┓┃"});
+        tileMap.put(0b0110, new String[]{"┏━", "┃┏"});
+        tileMap.put(0b0011, new String[]{"━━", "━━"});
 
-        tileMap.put(Direction.NORTH.name() + Direction.SOUTH + Direction.EAST, new String[]{"┃┗", "┃┏"});
-        tileMap.put(Direction.NORTH.name() + Direction.SOUTH + Direction.WEST, new String[]{"┛┃", "┓┃"});
-        tileMap.put(Direction.NORTH.name() + Direction.EAST + Direction.WEST, new String[]{"┛┗", "━━"});
-        tileMap.put(Direction.SOUTH.name() + Direction.EAST + Direction.WEST, new String[]{"━━", "┓┏"});
+        tileMap.put(0b1110, new String[]{"┃┗", "┃┏"});
+        tileMap.put(0b1101, new String[]{"┛┃", "┓┃"});
+        tileMap.put(0b1011, new String[]{"┛┗", "━━"});
+        tileMap.put(0b0111, new String[]{"━━", "┓┏"});
 
-        tileMap.put(Direction.NORTH.name() + Direction.SOUTH + Direction.EAST + Direction.WEST, new String[]{"┛┗", "┓┏"});
+        tileMap.put(0b1111, new String[]{"┛┗", "┓┏"});
     }
 
     @Override

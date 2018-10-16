@@ -26,25 +26,29 @@ public class Cell {
         cell.linkNeighbour(direction.opposite(), this);
     }
 
-    public String key() {
-        StringBuilder key = new StringBuilder();
+    public Integer key() {
+        final Integer[] key = {0b0000};
         wallStateMap.computeIfPresent(Direction.NORTH, (direction, wallState) -> {
-            key.append(wallState == WallState.OPEN ? Direction.NORTH : "");
+            if (wallState.equals(WallState.OPEN))
+                key[0] = key[0] | 0b1000;
             return wallState;
         });
         wallStateMap.computeIfPresent(Direction.SOUTH, (direction, wallState) -> {
-            key.append(wallState == WallState.OPEN ? Direction.SOUTH : "");
+            if (wallState.equals(WallState.OPEN))
+                key[0] = key[0] | 0b0100;
             return wallState;
         });
         wallStateMap.computeIfPresent(Direction.EAST, (direction, wallState) -> {
-            key.append(wallState == WallState.OPEN ? Direction.EAST : "");
+            if (wallState.equals(WallState.OPEN))
+                key[0] = key[0] | 0b0010;
             return wallState;
         });
         wallStateMap.computeIfPresent(Direction.WEST, (direction, wallState) -> {
-            key.append(wallState == WallState.OPEN ? Direction.WEST : "");
+            if (wallState.equals(WallState.OPEN))
+                key[0] = key[0] | 0b0001;
             return wallState;
         });
-        return key.toString();
+        return key[0];
     }
 
     @Override

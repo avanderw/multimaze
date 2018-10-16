@@ -14,8 +14,8 @@ public class RecursiveBacktrackerModule extends AbstractModule {
     @Override
     protected void configure() {
         install(new AnalyserModule());
-        bind(Integer.class).annotatedWith(Names.named("defaultRowCount")).toInstance(9);
-        bind(Integer.class).annotatedWith(Names.named("defaultColCount")).toInstance(9);
+        bind(Integer.class).annotatedWith(Names.named("maze-row-count")).toInstance(9);
+        bind(Integer.class).annotatedWith(Names.named("maze-col-count")).toInstance(9);
         bind(IMaze.class).to(GridMaze.class);
         bind(IMazeGenerator.class).to(RecursiveBacktrackerGenerator.class);
         bind(IMazeRenderer.class).to(GridTextRenderer.class);
