@@ -7,17 +7,21 @@ import com.google.inject.name.Named;
 import net.avdw.maze.model.Cell;
 import net.avdw.maze.model.IMaze;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
 public class MazeTextureMapper {
     private final IMaze maze;
     private final Integer pixmapSize;
+    private final Map<Integer, Pixmap> pregeneratedPixmaps = new HashMap();
 
     @Inject
     MazeTextureMapper(IMaze maze, @Named("maze-cell-size") Integer pixmapSize) {
         this.maze = maze;
         this.pixmapSize = pixmapSize;
+        pregeneratePixmaps();
     }
 
     public Texture mapMazeToTexture() {
@@ -31,10 +35,16 @@ public class MazeTextureMapper {
                             .filter(c -> c.row == row)
                             .filter(c -> c.col == col)
                             .findAny();
-                    cell.ifPresent(c -> texture.draw(mapKeyToPixmap(c.key()), pixmapSize * col, pixmapSize * row));
+                    cell.ifPresent(c -> texture.draw(pregeneratedPixmaps.get(c.key()), pixmapSize * col, pixmapSize * row));
                 })
         );
         return texture;
+    }
+
+    private void pregeneratePixmaps() {
+        for (int i = 0; i < Math.pow(2, 4); i++) {
+            pregeneratedPixmaps.put(i, mapKeyToPixmap(i));
+        }
     }
 
     private Pixmap mapKeyToPixmap(Integer key) {
@@ -44,18 +54,18 @@ public class MazeTextureMapper {
         pixmap.setFilter(Pixmap.Filter.NearestNeighbour);
         pixmap.setColor(0xFFFFFFFF);
 
-        pixmap.fillRectangle(sectionSize-2, sectionSize-2, sectionSize+4, sectionSize+4);
+        pixmap.fillRectangle(sectionSize - 2, sectionSize - 2, sectionSize + 4, sectionSize + 4);
         if ((key & 0b1000) == 0b1000) {
-            pixmap.fillRectangle(sectionSize-2, 0, sectionSize+4, sectionSize);
+            pixmap.fillRectangle(sectionSize - 2, 0, sectionSize + 4, sectionSize);
         }
         if ((key & 0b0100) == 0b0100) {
-            pixmap.fillRectangle(sectionSize-2, 2 * sectionSize, sectionSize+4, sectionSize);
+            pixmap.fillRectangle(sectionSize - 2, 2 * sectionSize, sectionSize + 4, sectionSize);
         }
         if ((key & 0b0010) == 0b0010) {
-            pixmap.fillRectangle(2 * sectionSize, sectionSize-2, sectionSize, sectionSize+4);
+            pixmap.fillRectangle(2 * sectionSize, sectionSize - 2, sectionSize, sectionSize + 4);
         }
         if ((key & 0b0001) == 0b0001) {
-            pixmap.fillRectangle(0, sectionSize-2, sectionSize, sectionSize+4);
+            pixmap.fillRectangle(0, sectionSize - 2, sectionSize, sectionSize + 4);
         }
 
         return pixmap;

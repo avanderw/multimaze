@@ -11,6 +11,13 @@
 
     <groupId>net.avdw</groupId>
     <artifactId>multimaze-desktop-launcher</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>net.avdw</groupId>
+            <artifactId>multimaze-desktop-client</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 
 </project>

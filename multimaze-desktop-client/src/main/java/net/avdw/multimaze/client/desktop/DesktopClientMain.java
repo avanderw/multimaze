@@ -15,9 +15,7 @@ public class DesktopClientMain {
         injector.getInstance(IMazeGenerator.class).generate();
         new LwjglApplication(injector.getInstance(ApplicationListener.class), injector.getInstance(LwjglApplicationConfiguration.class));
 
-//        for (int i=0; i < Math.pow(2, 4); i++) {
-//            System.out.println(StringUtils.leftPad(Integer.toBinaryString(i), 4, "0"));
-//        }
+
 
         //http://www.gamefromscratch.com/post/2018/09/27/Free-Game-Art-Asset-Packs.aspx
         //http://www.gamefromscratch.com/post/2018/10/02/MagicaVoxel-0992-Released.aspx
