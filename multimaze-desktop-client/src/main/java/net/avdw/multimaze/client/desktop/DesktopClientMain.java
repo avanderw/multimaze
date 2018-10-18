@@ -6,9 +6,15 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import net.avdw.maze.generator.IMazeGenerator;
+import org.pmw.tinylog.Configurator;
+import org.pmw.tinylog.Level;
 
 public class DesktopClientMain {
     public static void main(String[] args) {
+        Configurator.currentConfig()
+                .formatPattern("{date:yyyy-MM-dd HH:mm:ss} [{thread}] {class}.{method}() {level}: {message}")
+                .level(Level.TRACE)
+                .activate();
 
         Injector injector = Guice.createInjector(new DesktopClientModule());
         injector.getInstance(IMazeGenerator.class).generate();

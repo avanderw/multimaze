@@ -4,26 +4,26 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Cell {
+public class MazeCell {
     public final Integer row;
     public final Integer col;
     public final Map<Direction, WallState> wallStateMap = new HashMap();
-    public final Map<Direction, Cell> neighbourCellMap = new HashMap();
+    public final Map<Direction, MazeCell> neighbourCellMap = new HashMap();
     public Boolean visited = Boolean.FALSE;
 
-    Cell(Integer row, Integer col) {
+    MazeCell(Integer row, Integer col) {
         this.row = row;
         this.col = col;
         Arrays.stream(Direction.values()).forEach(direction -> wallStateMap.put(direction, WallState.CLOSED));
     }
 
-    void linkNeighbour(Direction direction, Cell cell) {
+    void linkNeighbour(Direction direction, MazeCell mazeCell) {
         if (neighbourCellMap.containsKey(direction)) {
             return;
         }
 
-        neighbourCellMap.put(direction, cell);
-        cell.linkNeighbour(direction.opposite(), this);
+        neighbourCellMap.put(direction, mazeCell);
+        mazeCell.linkNeighbour(direction.opposite(), this);
     }
 
     public Integer key() {

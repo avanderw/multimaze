@@ -1,6 +1,6 @@
 package net.avdw.maze.generator;
 
-import net.avdw.maze.model.Cell;
+import net.avdw.maze.model.MazeCell;
 import net.avdw.maze.model.Direction;
 import net.avdw.maze.model.IMaze;
 import net.avdw.maze.model.WallState;
@@ -26,7 +26,7 @@ public class RecursiveBacktrackerGenerator implements IMazeGenerator {
         maze.build();
         Integer startRow = ThreadLocalRandom.current().nextInt(0, maze.rowCount());
         Integer startCol = ThreadLocalRandom.current().nextInt(0, maze.colCount());
-        Optional<Cell> startCell = maze.cells().stream()
+        Optional<MazeCell> startCell = maze.cells().stream()
                 .filter(cell -> cell.row == startRow)
                 .filter(cell -> cell.col == startCol)
                 .findAny();
@@ -34,16 +34,16 @@ public class RecursiveBacktrackerGenerator implements IMazeGenerator {
         startCell.ifPresent(cell -> visit(cell));
     }
 
-    private void visit(Cell cell) {
-        cell.visited = Boolean.TRUE;
-        List<Map.Entry<Direction, Cell>> neighboursToVisit = cell.neighbourCellMap.entrySet().stream()
+    private void visit(MazeCell mazeCell) {
+        mazeCell.visited = Boolean.TRUE;
+        List<Map.Entry<Direction, MazeCell>> neighboursToVisit = mazeCell.neighbourCellMap.entrySet().stream()
                 .filter(directionCellEntry -> directionCellEntry.getValue().visited == Boolean.FALSE)
                 .collect(Collectors.toList());
         Collections.shuffle(neighboursToVisit);
 
         neighboursToVisit.stream().forEach(entry -> {
                     if (!entry.getValue().visited) {
-                        cell.wallStateMap.put(entry.getKey(), WallState.OPEN);
+                        mazeCell.wallStateMap.put(entry.getKey(), WallState.OPEN);
                         entry.getValue().wallStateMap.put(entry.getKey().opposite(), WallState.OPEN);
                         visit(entry.getValue());
                     }

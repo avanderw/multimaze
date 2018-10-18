@@ -11,12 +11,13 @@ public class MazeModule extends AbstractModule {
     protected void configure() {
         bind(Integer.class).annotatedWith(Names.named("maze-row-count")).toInstance(32);
         bind(Integer.class).annotatedWith(Names.named("maze-col-count")).toInstance(32);
-        bind(Integer.class).annotatedWith(Names.named("maze-cell-size")).toInstance(9);
+        bind(Integer.class).annotatedWith(Names.named("maze-cell-size")).toInstance(15);
+        bind(Integer.class).annotatedWith(Names.named("maze-cell-padding")).toInstance(2);
     }
 
     @Provides
     @Named("maze-texture")
-    Texture mazeTexture(MazeTextureMapper mazeTextureMapper) {
-        return mazeTextureMapper.mapMazeToTexture();
+    Texture mazeTexture(MazeTextureGenerator mazeTextureGenerator) {
+        return mazeTextureGenerator.mapMazeToTexture();
     }
 }

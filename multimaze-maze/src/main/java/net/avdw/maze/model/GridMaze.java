@@ -13,7 +13,7 @@ import java.util.stream.IntStream;
 public class GridMaze implements IMaze {
     private Integer rowCount;
     private Integer colCount;
-    private List<Cell> cells;
+    private List<MazeCell> mazeCells;
 
     @Inject
     private GridMaze(@Named("maze-row-count") Integer defaultRowCount, @Named("maze-col-count") Integer defaultColCount) {
@@ -30,24 +30,24 @@ public class GridMaze implements IMaze {
     }
 
     public void build() {
-        cells = new ArrayList();
+        mazeCells = new ArrayList();
         IntStream.range(0, rowCount).forEach(row ->
                 IntStream.range(0, colCount).forEach(col ->
-                        cells.add(new Cell(row, col))
+                        mazeCells.add(new MazeCell(row, col))
                 )
         );
 
         IntStream.range(0, rowCount).forEach(row ->
                 IntStream.range(0, colCount).forEach(col -> {
-                    Optional<Cell> currCell = cells.stream()
+                    Optional<MazeCell> currCell = mazeCells.stream()
                             .filter(cell -> cell.row == row)
                             .filter(cell -> cell.col == col)
                             .findAny();
-                    Optional<Cell> southCell = cells.stream()
+                    Optional<MazeCell> southCell = mazeCells.stream()
                             .filter(cell -> cell.row == row + 1)
                             .filter(cell -> cell.col == col)
                             .findAny();
-                    Optional<Cell> eastCell = cells.stream()
+                    Optional<MazeCell> eastCell = mazeCells.stream()
                             .filter(cell -> cell.row == row)
                             .filter(cell -> cell.col == col + 1)
                             .findAny();
@@ -61,8 +61,8 @@ public class GridMaze implements IMaze {
     }
 
     @Override
-    public List<Cell> cells() {
-        return cells;
+    public List<MazeCell> cells() {
+        return mazeCells;
     }
 
     @Override
@@ -77,6 +77,6 @@ public class GridMaze implements IMaze {
 
     @Override
     public String toString() {
-        return String.format("{cells=%s}", cells);
+        return String.format("{mazeCells=%s}", mazeCells);
     }
 }

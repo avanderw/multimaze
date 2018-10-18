@@ -1,8 +1,7 @@
 package net.avdw.maze.renderer;
 
 import com.google.inject.Inject;
-import net.avdw.maze.model.Cell;
-import net.avdw.maze.model.Direction;
+import net.avdw.maze.model.MazeCell;
 import net.avdw.maze.model.IMaze;
 import org.pmw.tinylog.Logger;
 
@@ -45,7 +44,7 @@ public class GridTextRenderer implements IMazeRenderer {
         IntStream.range(0, maze.rowCount()).forEach(row->{
             IntStream.range(0, 2).forEach(tile->{
                 IntStream.range(0, maze.colCount()).forEach(col-> {
-                    Optional<Cell> currCell = maze.cells().stream()
+                    Optional<MazeCell> currCell = maze.cells().stream()
                             .filter(cell -> cell.row == row)
                             .filter(cell -> cell.col == col)
                             .findAny();

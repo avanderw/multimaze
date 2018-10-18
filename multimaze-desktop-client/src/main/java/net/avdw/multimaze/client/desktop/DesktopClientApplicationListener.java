@@ -10,6 +10,8 @@ import com.google.inject.Injector;
 import com.google.inject.Key;
 import com.google.inject.name.Named;
 import com.google.inject.name.Names;
+import net.avdw.multimaze.client.desktop.maze.Maze;
+import net.avdw.multimaze.client.desktop.player.Player;
 
 public class DesktopClientApplicationListener implements ApplicationListener {
 
@@ -17,8 +19,9 @@ public class DesktopClientApplicationListener implements ApplicationListener {
     private SpriteBatch batch;
     private float elapsed;
 
-    private Texture mazeTexture;
-    private Texture playerTexture;
+    private Player player;
+    private Maze maze;
+    private Integer cellPadding;
 
     @Inject
     DesktopClientApplicationListener(Injector injector) {
@@ -27,8 +30,9 @@ public class DesktopClientApplicationListener implements ApplicationListener {
 
     public void create () {
         batch = new SpriteBatch();
-        mazeTexture = injector.getInstance(Key.get(Texture.class, Names.named("maze-texture")));
-        playerTexture = injector.getInstance(Key.get(Texture.class, Names.named("player-texture")));
+        maze = injector.getInstance(Maze.class);
+        player = injector.getInstance(Player.class);
+        cellPadding = injector.getInstance(Key.get(Integer.class, Names.named("maze-cell-padding")));
     }
 
     public void resize (int width, int height) {
@@ -39,7 +43,8 @@ public class DesktopClientApplicationListener implements ApplicationListener {
         Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
-        batch.draw(mazeTexture, 0, 0);
+        batch.draw(maze.texture, 0, 0);
+        batch.draw(player.texture, cellPadding, cellPadding);
         batch.end();
     }
 
@@ -50,7 +55,8 @@ public class DesktopClientApplicationListener implements ApplicationListener {
     }
 
     public void dispose () {
-        mazeTexture.dispose();
+        player.dispose();
+        maze.dispose();
         batch.dispose();
     }
 }

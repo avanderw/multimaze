@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface IMaze {
     void build();
-    List<Cell> cells();
+    List<MazeCell> cells();
     Integer rowCount();
     Integer colCount();
 }
