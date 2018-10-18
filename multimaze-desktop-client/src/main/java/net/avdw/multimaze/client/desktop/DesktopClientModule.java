@@ -10,12 +10,13 @@ import net.avdw.maze.generator.RecursiveBacktrackerGenerator;
 import net.avdw.maze.model.GridMaze;
 import net.avdw.maze.model.IMaze;
 import net.avdw.multimaze.client.desktop.maze.MazeModule;
+import net.avdw.multimaze.client.desktop.player.PlayerModule;
 
 public class DesktopClientModule extends AbstractModule {
     @Override
     public void configure() {
         install(new MazeModule());
-
+        install(new PlayerModule());
 
         bind(ApplicationListener.class).to(DesktopClientApplicationListener.class);
         bind(IMazeGenerator.class).to(RecursiveBacktrackerGenerator.class);

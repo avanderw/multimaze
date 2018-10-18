@@ -10,6 +10,7 @@
         <module name="multimaze-desktop-client" />
         <module name="multimaze-desktop-launcher" />
         <module name="multimaze-maze" />
+        <module name="multimaze-protocol" />
         <module name="multimaze-server" />
       </profile>
     </annotationProcessing>
@@ -19,6 +20,7 @@
       <module name="multimaze-desktop-client" target="1.8" />
       <module name="multimaze-desktop-launcher" target="1.5" />
       <module name="multimaze-maze" target="1.8" />
+      <module name="multimaze-protocol" target="1.8" />
       <module name="multimaze-server" target="1.5" />
     </bytecodeTargetLevel>
   </component>

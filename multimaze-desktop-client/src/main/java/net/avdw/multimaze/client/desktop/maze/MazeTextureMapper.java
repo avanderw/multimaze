@@ -15,7 +15,7 @@ import java.util.stream.IntStream;
 public class MazeTextureMapper {
     private final IMaze maze;
     private final Integer pixmapSize;
-    private final Map<Integer, Pixmap> pregeneratedPixmaps = new HashMap();
+    private final Map<Integer, Pixmap> pixmapCache = new HashMap<>();
 
     @Inject
     MazeTextureMapper(IMaze maze, @Named("maze-cell-size") Integer pixmapSize) {
@@ -35,7 +35,7 @@ public class MazeTextureMapper {
                             .filter(c -> c.row == row)
                             .filter(c -> c.col == col)
                             .findAny();
-                    cell.ifPresent(c -> texture.draw(pregeneratedPixmaps.get(c.key()), pixmapSize * col, pixmapSize * row));
+                    cell.ifPresent(c -> texture.draw(pixmapCache.get(c.key()), pixmapSize * col, pixmapSize * row));
                 })
         );
         return texture;
@@ -43,7 +43,7 @@ public class MazeTextureMapper {
 
     private void pregeneratePixmaps() {
         for (int i = 0; i < Math.pow(2, 4); i++) {
-            pregeneratedPixmaps.put(i, mapKeyToPixmap(i));
+            pixmapCache.put(i, mapKeyToPixmap(i));
         }
     }
 

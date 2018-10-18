@@ -18,6 +18,7 @@ public class DesktopClientApplicationListener implements ApplicationListener {
     private float elapsed;
 
     private Texture mazeTexture;
+    private Texture playerTexture;
 
     @Inject
     DesktopClientApplicationListener(Injector injector) {
@@ -27,6 +28,7 @@ public class DesktopClientApplicationListener implements ApplicationListener {
     public void create () {
         batch = new SpriteBatch();
         mazeTexture = injector.getInstance(Key.get(Texture.class, Names.named("maze-texture")));
+        playerTexture = injector.getInstance(Key.get(Texture.class, Names.named("player-texture")));
     }
 
     public void resize (int width, int height) {

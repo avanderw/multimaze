@@ -1,12 +1,11 @@
 package net.avdw.multimaze.client.desktop;
 
 import com.badlogic.gdx.ApplicationListener;
+import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
+import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import net.avdw.maze.generator.IMazeGenerator;
-import org.apache.commons.lang3.StringUtils;
-import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
-import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 
 public class DesktopClientMain {
     public static void main(String[] args) {
