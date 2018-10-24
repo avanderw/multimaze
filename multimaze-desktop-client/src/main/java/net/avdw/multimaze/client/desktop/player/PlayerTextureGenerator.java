@@ -19,7 +19,7 @@ public class PlayerTextureGenerator {
     }
 
     public Texture generate() {
-        Logger.debug(this);
+        Logger.trace(this);
         return new Texture(pixmapCache);
     }
 
