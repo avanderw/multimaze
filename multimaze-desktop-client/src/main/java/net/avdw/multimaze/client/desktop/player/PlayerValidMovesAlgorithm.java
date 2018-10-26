@@ -1,9 +1,11 @@
 package net.avdw.multimaze.client.desktop.player;
 
+import com.google.inject.Inject;
 import net.avdw.maze.model.Direction;
 import net.avdw.maze.model.IMaze;
 import net.avdw.maze.model.MazeCell;
 import net.avdw.maze.model.WallState;
+import org.pmw.tinylog.Logger;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -11,15 +13,14 @@ import java.util.Optional;
 import java.util.Set;
 
 public class PlayerValidMovesAlgorithm {
-    private final Player player;
     private final IMaze maze;
 
-    PlayerValidMovesAlgorithm(Player player, IMaze maze) {
-
-        this.player = player;
+    @Inject
+    PlayerValidMovesAlgorithm(IMaze maze) {
         this.maze = maze;
     }
-    public Set<MazeCell> determineValidMovesForPlayer() {
+    public Set<MazeCell> determineValidMovesForPlayer(Player player) {
+        Logger.trace(String.format("%s", player));
         Set<MazeCell> validMoves = new HashSet<>();
 
         Optional<MazeCell> startingMazeCell = maze.cells().stream()

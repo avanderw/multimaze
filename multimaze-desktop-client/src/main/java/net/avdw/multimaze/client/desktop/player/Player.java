@@ -33,7 +33,9 @@ public class Player extends Actor {
 
         setSize(texture.getWidth(), texture.getHeight());
         mazeCell = maze.cells().get(random.nextInt(maze.cells().size()));
-        setPosition(mazeCell.col * pixmapSize, mazeCell.row * pixmapSize);
+        mazeCell = maze.cells().get(0);
+//        setPosition(mazeCell.col * pixmapSize, (maze.rowCount() - mazeCell.row -1) * pixmapSize);
+        setPosition(mazeCell.col * pixmapSize,  mazeCell.row * pixmapSize);
 
         addListener(inputListener);
     }
@@ -48,6 +50,11 @@ public class Player extends Actor {
         Logger.trace(String.format("x=%s, y=%s", x, y));
         super.setPosition(x + offset, y + offset);
         sprite.setPosition(x + offset, y + offset);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("mazeCell=%s", mazeCell);
     }
 
 }

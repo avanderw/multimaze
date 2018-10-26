@@ -53,7 +53,7 @@ public class MazeCell {
 
     @Override
     public String toString() {
-        return String.format("{row=%s, col=%s, key=%s, walls=%s, neighbours=%s}", row, col, key(), wallStateMap, neighbourCellMap.keySet());
+        return String.format("{row=%s, col=%s, key=%s}", row, col, Integer.toBinaryString(key()));
     }
 
 }
