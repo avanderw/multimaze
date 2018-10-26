@@ -50,14 +50,14 @@ public class MultimazeConfig extends AbstractModule {
     OrthographicCamera orthographicCamera() {
         Logger.trace("");
         OrthographicCamera camera = new OrthographicCamera();
-        camera.setToOrtho(Boolean.FALSE, WIDTH, HEIGHT);
+        camera.setToOrtho(Boolean.TRUE, WIDTH, HEIGHT);
         return camera;
     }
 
     @Provides
-    ExtendViewport viewport() {
+    ExtendViewport viewport(OrthographicCamera camera) {
         Logger.trace("");
-        return new ExtendViewport(WIDTH, HEIGHT);
+        return new ExtendViewport(WIDTH, HEIGHT, camera);
     }
 
 
