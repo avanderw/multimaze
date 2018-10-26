@@ -62,12 +62,13 @@ public class MultimazeConfig extends AbstractModule {
 
 
     @Provides @Singleton
-    Stage stage(Viewport viewport, @Named("maze-image") Image maze, Player player) {
+    Stage stage(Viewport viewport, @Named("maze-image") Image maze, Player player, @Named("player-move-indicator") Image validMoveIndicator) {
         Logger.trace(String.format("viewport=%s, maze=%s, player=%s", viewport, maze, player));
         Stage stage = new Stage();
         stage.setViewport(viewport);
         stage.addActor(maze);
         stage.addActor(player);
+        stage.addActor(validMoveIndicator);
         return stage;
     }
 

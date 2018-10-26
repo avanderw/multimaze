@@ -35,7 +35,6 @@ public class Player extends Actor {
         mazeCell = maze.cells().get(random.nextInt(maze.cells().size()));
         mazeCell = maze.cells().get(0);
         setPosition(mazeCell.col * pixmapSize, (maze.rowCount() - mazeCell.row -1) * pixmapSize);
-        //setPosition(mazeCell.col * pixmapSize,  mazeCell.row * pixmapSize);
 
         addListener(inputListener);
     }
