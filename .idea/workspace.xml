@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fc3cfcef-099b-4506-93a4-6e962e644175" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/MultimazeConfig.java" afterPath="$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/MultimazeConfig.java" />
       <change beforePath="$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/player/Player.java" afterPath="$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/player/Player.java" />
-      <change beforePath="$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/player/PlayerInputListener.java" afterPath="$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/player/PlayerInputListener.java" />
-      <change beforePath="$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/player/PlayerValidMovesAlgorithm.java" afterPath="$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/player/PlayerValidMovesAlgorithm.java" />
-      <change beforePath="$PROJECT_DIR$/multimaze-maze/src/main/java/net/avdw/maze/model/MazeCell.java" afterPath="$PROJECT_DIR$/multimaze-maze/src/main/java/net/avdw/maze/model/MazeCell.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -55,8 +53,8 @@
       <file leaf-file-name="MultimazeConfig.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/MultimazeConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="59" column="25" lean-forward="false" selection-start-line="59" selection-start-column="25" selection-end-line="59" selection-end-column="25" />
+            <state relative-caret-position="113">
+              <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -98,7 +96,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MazeConfig.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MazeConfig.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/maze/MazeConfig.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="419">
@@ -124,11 +122,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/player/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="36" column="39" lean-forward="true" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
+            <state relative-caret-position="266">
+              <caret line="37" column="10" lean-forward="false" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1730#1731#0" expanded="true" />
@@ -232,7 +230,6 @@
         <option value="$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/player/PlayerInputHandler.java" />
         <option value="$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/maze/GameStageConfig.java" />
         <option value="$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/maze/MazeConfig.java" />
-        <option value="$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/MultimazeConfig.java" />
         <option value="$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/player/PlayerConfig.java" />
         <option value="$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/MultimazeMain.java" />
         <option value="$PROJECT_DIR$/multimaze-maze/src/main/java/net/avdw/maze/model/MazeCell.java" />
@@ -241,6 +238,7 @@
         <option value="$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/MultimazeRenderer.java" />
         <option value="$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/player/PlayerInputListener.java" />
         <option value="$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/player/Player.java" />
+        <option value="$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/MultimazeConfig.java" />
       </list>
     </option>
   </component>
@@ -862,7 +860,21 @@
       <option name="project" value="LOCAL" />
       <updated>1540541364727</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="updated coordinate systems from model to world">
+      <created>1540546527367</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1540546527367</updated>
+    </task>
+    <task id="LOCAL-00016" summary="updated (0, 0) to be bottom-left">
+      <created>1540547043850</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1540547043850</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -933,7 +945,9 @@
     <MESSAGE value="migrated to actors and stage" />
     <MESSAGE value="updated to use sprite instead of image to make positioning easier" />
     <MESSAGE value="updated positioning of player to maze" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated positioning of player to maze" />
+    <MESSAGE value="updated coordinate systems from model to world" />
+    <MESSAGE value="updated (0, 0) to be bottom-left" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated (0, 0) to be bottom-left" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1233,32 +1247,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/maze/MazeConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1157#1158#0" expanded="true" />
-            <element signature="e#1219#1220#0" expanded="true" />
-            <element signature="e#1321#1322#0" expanded="true" />
-            <element signature="e#1362#1363#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/player/PlayerConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="94" lean-forward="false" selection-start-line="16" selection-start-column="94" selection-end-line="16" selection-end-column="94" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#721#722#0" expanded="true" />
-            <element signature="e#756#757#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/badlogicgames/gdx/gdx/1.9.8/gdx-1.9.8-sources.jar!/com/badlogic/gdx/utils/viewport/ExtendViewport.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-114">
@@ -1279,14 +1267,6 @@
             <element signature="e#1275#1276#0" expanded="true" />
             <element signature="e#1307#1308#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/MultimazeConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="59" column="25" lean-forward="false" selection-start-line="59" selection-start-column="25" selection-end-line="59" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1312,16 +1292,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/player/PlayerConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="94" lean-forward="false" selection-start-line="16" selection-start-column="94" selection-end-line="16" selection-end-column="94" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#721#722#0" expanded="true" />
+            <element signature="e#756#757#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/player/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="36" column="39" lean-forward="true" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
+        <state relative-caret-position="266">
+          <caret line="37" column="10" lean-forward="false" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1730#1731#0" expanded="true" />
             <element signature="e#1777#1778#0" expanded="true" />
             <element signature="e#2052#2053#0" expanded="true" />
             <element signature="e#2113#2114#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/MultimazeConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/multimaze-desktop-client/src/main/java/net/avdw/multimaze/client/desktop/maze/MazeConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1157#1158#0" expanded="true" />
+            <element signature="e#1219#1220#0" expanded="true" />
+            <element signature="e#1321#1322#0" expanded="true" />
+            <element signature="e#1362#1363#0" expanded="true" />
           </folding>
         </state>
       </provider>
