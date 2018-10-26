@@ -3,20 +3,23 @@ package net.avdw.multimaze.client.desktop.player;
 import com.badlogic.gdx.graphics.Texture;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
+import com.google.inject.Singleton;
 import com.google.inject.multibindings.Multibinder;
 import com.google.inject.name.Named;
 import com.google.inject.name.Names;
 
-public class PlayerModule extends AbstractModule {
+import java.util.Random;
+
+public class PlayerConfig extends AbstractModule {
     @Override
     protected void configure() {
-        bind(Integer.class).annotatedWith(Names.named("player-size")).toInstance(11);
+        bind(Integer.class).annotatedWith(Names.named("player-texture-size")).toInstance(11);
+        bind(Integer.class).annotatedWith(Names.named("player-texture-offset")).toInstance(2);
+    }
 
-//        Multibinder<AAction> playerActions = Multibinder.newSetBinder(binder(), AAction.class);
-//        playerActions.addBinding().to(MoveUp.class);
-//        playerActions.addBinding().to(MoveDownInputProcessor.class);
-//        playerActions.addBinding().to(MoveLeft.class);
-//        playerActions.addBinding().to(MoveRight.class);
+    @Provides @Singleton @Named("player-random")
+    Random random() {
+        return new Random();
     }
 
     @Provides

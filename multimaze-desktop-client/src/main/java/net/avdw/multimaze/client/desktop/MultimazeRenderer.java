@@ -8,20 +8,22 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import org.pmw.tinylog.Logger;
 
-public class DesktopClientApplicationListener implements ApplicationListener {
+public class MultimazeRenderer implements ApplicationListener {
 
     private Injector injector;
     private Stage stage;
     private float elapsed;
 
     @Inject
-    DesktopClientApplicationListener(Injector injector) {
+    MultimazeRenderer(Injector injector) {
         this.injector = injector;
     }
 
     public void create () {
         Logger.trace("");
         stage = injector.getInstance(Stage.class);
+        Gdx.graphics.setContinuousRendering(false);
+        Gdx.graphics.requestRendering();
         Gdx.input.setInputProcessor(stage);
     }
 

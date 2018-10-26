@@ -13,7 +13,7 @@ public class PlayerTextureGenerator {
     private Pixmap pixmapCache;
 
     @Inject
-    PlayerTextureGenerator(@Named("player-size") Integer playerSize) {
+    PlayerTextureGenerator(@Named("player-texture-size") Integer playerSize) {
         this.playerSize = playerSize;
         pregeneratePixmap();
     }
